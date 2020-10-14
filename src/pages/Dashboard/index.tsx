@@ -28,7 +28,6 @@ interface Product {
   price: number;
 }
 
-
 const Dashboard: React.FC = () => {
   const { addToCart } = useCart();
 
@@ -36,19 +35,17 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
-      const response = await api.get('/products')
+      const response = await api.get('/products');
 
-     setProducts(response.data)
+      setProducts(response.data);
     }
 
     loadProducts();
   }, []);
 
   function handleAddToCart(item: Product): void {
-    addToCart(item)
+    addToCart(item);
   }
-
-
 
   return (
     <Container>
